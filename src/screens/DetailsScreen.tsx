@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import {
+  Pressable,
   StyleSheet,
   Text,
   View,
-  Pressable,
   useWindowDimensions,
 } from "react-native";
 
-export default function App() {
+const DetailsScreen = () => {
   const { height } = useWindowDimensions();
   const [number, setNumber] = useState(0);
 
   function handlePress() {
-    setNumber(parseInt(Math.random() * 10000, 10) % 100);
+    setNumber(Math.floor(Math.random() * 10000) % 100);
   }
 
   return (
@@ -32,7 +32,7 @@ export default function App() {
       </Pressable>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -52,3 +52,5 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
 });
+
+export default DetailsScreen;
